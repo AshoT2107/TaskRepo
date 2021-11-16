@@ -4,7 +4,7 @@ namespace Task
 {
     class Program
     {
-        static bool isNumber(string s)
+        static bool Number(string s)
         {
             for (int i = 0; i < s.Length; i++)
                 if (char.IsDigit(s[i]) == false)
@@ -18,13 +18,13 @@ namespace Task
             
             var word = Console.ReadLine();
             
-                var res = isNumber(word);
+                var res = Number(word);
                 if (res)
                 {
                     var number = int.Parse(word);
-                    if (isMersenne(number))
+                    if (Mersenne(number))
                     {
-                        Console.WriteLine("Mersenna");
+                        Console.WriteLine("it is Mersenne prime number");
                     }
                     bool IsPrime = true;
                     for (int i = 2; i < number / 2; i++)
@@ -38,30 +38,34 @@ namespace Task
                     
                     if (IsPrime)
                     {
-                        Console.Write("Number is Prime.");
+                        Console.Write("it is a regular prime number");
                     }
                 
                     else
                     {
-                        Console.Write("Number is not Prime.");
+                        Console.Write("it is not a prime number");
                     }
                 }
                 else
                 {
-                    if (word != "quit")
-                            goto key;
+                    if (word != "quit") 
+                    {
+                        Console.WriteLine("Invalid Number");
+                        goto key;
+                    }
+                       
                     if (word == "quit")
                         Environment.Exit(0);
                 }
             
         }
-        static bool isMersenne(int n)
+        static bool Mersenne(int n)
         {
             while (n != 0)
             {
                 int r = n % 2;
                 if (r == 0)
-                    return false;
+            return false;
                 n /= 2;
             }
             return true;
